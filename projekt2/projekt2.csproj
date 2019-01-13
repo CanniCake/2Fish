@@ -61,43 +61,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pocetna1.cs">
+    <Compile Include="2FishDataSet.cs">
+      <DependentUpon>2FishDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="2FishDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>2FishDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Pocetna1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pocetna1.Designer.cs">
+    <Compile Include="Form\Pocetna1.Designer.cs">
       <DependentUpon>Pocetna1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pocetna2.cs">
+    <Compile Include="Form\Pocetna2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pocetna2.Designer.cs">
+    <Compile Include="Form\Pocetna2.Designer.cs">
       <DependentUpon>Pocetna2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Unos ulova.cs">
+    <Compile Include="Form\Unos ulova.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Unos ulova.Designer.cs">
+    <Compile Include="Form\Unos ulova.Designer.cs">
       <DependentUpon>Unos ulova.cs</DependentUpon>
     </Compile>
-    <Compile Include="Prikaz stanja.cs">
+    <Compile Include="Form\PrikazStanja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Prikaz stanja.Designer.cs">
-      <DependentUpon>Prikaz stanja.cs</DependentUpon>
+    <Compile Include="Form\PrikazStanja.Designer.cs">
+      <DependentUpon>PrikazStanja.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Pocetna1.resx">
+    <EmbeddedResource Include="Form\Pocetna1.resx">
       <DependentUpon>Pocetna1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pocetna2.resx">
+    <EmbeddedResource Include="Form\Pocetna2.resx">
       <DependentUpon>Pocetna2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Unos ulova.resx">
-      <DependentUpon>Unos ulova.cs</DependentUpon>
+    <EmbeddedResource Include="Form\PrikazStanja.resx">
+      <DependentUpon>PrikazStanja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Prikaz stanja.resx">
-      <DependentUpon>Prikaz stanja.cs</DependentUpon>
+    <EmbeddedResource Include="Form\Unos ulova.resx">
+      <DependentUpon>Unos ulova.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +117,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="2FishDataSet.xsc">
+      <DependentUpon>2FishDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="2FishDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>2FishDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="2FishDataSet.xss">
+      <DependentUpon>2FishDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,9 +142,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imagess.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
@@ -138,23 +154,22 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="tablica1.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="tablica1_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>tablica1.mdf</DependentUpon>
-    </Content>
-    <Content Include="tablica2.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="tablica2_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>tablica2.mdf</DependentUpon>
-    </Content>
+    <None Include="Resources\Logo.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Table\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="2FishDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2FishDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>2FishDB.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

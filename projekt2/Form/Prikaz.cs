@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace projekt2
 {
-    public partial class Pocetna2 : Form
+    public partial class Prikaz : Form
     {
-        public Pocetna2()
+        public Prikaz()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
