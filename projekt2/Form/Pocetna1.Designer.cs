@@ -30,8 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.lblMail = new System.Windows.Forms.Label();
-            this.txtMail = new System.Windows.Forms.TextBox();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblPW = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,7 +43,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Location = new System.Drawing.Point(49, 196);
+            this.panel1.Location = new System.Drawing.Point(62, 196);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(274, 1);
@@ -63,25 +63,25 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // lblMail
+            // lblUser
             // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblMail.ForeColor = System.Drawing.Color.White;
-            this.lblMail.Location = new System.Drawing.Point(40, 162);
-            this.lblMail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(91, 33);
-            this.lblMail.TabIndex = 7;
-            this.lblMail.Text = "E-mail:";
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(6, 162);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(138, 33);
+            this.lblUser.TabIndex = 7;
+            this.lblUser.Text = "Username:";
             // 
-            // txtMail
+            // txtUser
             // 
-            this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMail.Location = new System.Drawing.Point(128, 159);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(196, 38);
-            this.txtMail.TabIndex = 10;
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Location = new System.Drawing.Point(141, 159);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(196, 38);
+            this.txtUser.TabIndex = 10;
             // 
             // pictureBox2
             // 
@@ -97,7 +97,7 @@
             this.lblPW.AutoSize = true;
             this.lblPW.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblPW.ForeColor = System.Drawing.Color.White;
-            this.lblPW.Location = new System.Drawing.Point(25, 215);
+            this.lblPW.Location = new System.Drawing.Point(38, 215);
             this.lblPW.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPW.Name = "lblPW";
             this.lblPW.Size = new System.Drawing.Size(106, 33);
@@ -107,7 +107,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Location = new System.Drawing.Point(43, 252);
+            this.panel2.Location = new System.Drawing.Point(56, 252);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(274, 1);
@@ -116,7 +116,7 @@
             // txtPW
             // 
             this.txtPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPW.Location = new System.Drawing.Point(128, 215);
+            this.txtPW.Location = new System.Drawing.Point(141, 215);
             this.txtPW.Name = "txtPW";
             this.txtPW.Size = new System.Drawing.Size(196, 38);
             this.txtPW.TabIndex = 14;
@@ -148,13 +148,14 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblPW);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.txtMail);
-            this.Controls.Add(this.lblMail);
+            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Pocetna1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -166,8 +167,8 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblPW;
         private System.Windows.Forms.Panel panel2;

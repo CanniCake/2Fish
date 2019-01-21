@@ -16,7 +16,7 @@ namespace projekt2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pocetna1());
+            Application.Run(new Pocetna2());
         }
     }
 }

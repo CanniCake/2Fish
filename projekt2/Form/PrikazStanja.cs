@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace projekt2
 {
@@ -17,9 +18,27 @@ namespace projekt2
             InitializeComponent();
         }
 
-        private void lblPrikaz_Click(object sender, EventArgs e)
-        {
+        SQLiteConnection sql_con;
+        SQLiteCommand sql_cmd;
+        SQLiteDataAdapter DB;
+        DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
+        string connectionString = "URI=file:Baza.db";
 
+        private void PrikazStanja_Load(object sender, EventArgs e)
+        {
+            dateDatum.Format = DateTimePickerFormat.Custom;
+            dateDatum.CustomFormat = "MMMM yyyy";
+
+            sql_con = new SQLiteConnection(connectionString);
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT ID_Riba, Težina FROM Ulov";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            ds.Reset();
+            DB.Fill(ds, "Info");
+            grdPrikaz.DataSource = ds.Tables[0];
+            sql_con.Close();
         }
 
         private void btnNatrag_Click(object sender, EventArgs e)
@@ -29,44 +48,5 @@ namespace projekt2
             p2.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            lblPrint.Visible = true;
-        }
-
-        private void izvjestajBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.izvjestajBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this._2FishDataSet);
-
-        }
-
-        private void izvjestajBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.tableAdapterManager.UpdateAll(this._2FishDataSet);
-
-        }
-
-        private void PrikazStanja_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the '_2FishDataSet.Ulov' table. You can move, or remove it, as needed.
-            this.ulovTableAdapter.Fill(this._2FishDataSet.Ulov);
-            // TODO: This line of code loads data into the '_2FishDataSet.Izvjestaj' table. You can move, or remove it, as needed.
-            this.izvjestajTableAdapter.Fill(this._2FishDataSet.Izvjestaj);
-            dateDatum.Format = DateTimePickerFormat.Custom;
-            dateDatum.CustomFormat = "MMMM yyyy";
-        }
-
-        private void ulovDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
     }
 }

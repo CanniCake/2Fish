@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
+
 
 namespace projekt2
 {
@@ -17,71 +19,85 @@ namespace projekt2
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
+         SQLiteConnection sql_con;
+         SQLiteCommand sql_cmd;
+         SQLiteDataAdapter DB;
+         DataSet ds = new DataSet();
+         DataTable dt = new DataTable();
+         string connectionString = "URI=file:Baza.db";
 
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the '_2FishDataSet.Korisnik' table. You can move, or remove it, as needed.
-            this.korisnikTableAdapter.Fill(this._2FishDataSet.Korisnik);
-            // TODO: This line of code loads data into the '_2FishDataSet.Korisnik' table. You can move, or remove it, as needed.
-            this.korisnikTableAdapter.Fill(this._2FishDataSet.Korisnik);
+            LoadData();
+
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "MMMM yyyy";
-
         }
 
-        private void korisnikBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        //Set Connection
+        private void SetConnection()
         {
-            this.Validate();
-            this.korisnikBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this._2FishDataSet);
-
+            sql_con = new SQLiteConnection(connectionString);
         }
 
-        private void korisnikBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        //Set ExecuteQuery
+        private void ExecuteQuery(string txtQuery)
         {
-            this.Validate();
-            this.korisnikBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this._2FishDataSet);
-
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            sql_cmd.CommandText = txtQuery;
+            sql_cmd.ExecuteNonQuery();
+            sql_con.Close();
         }
 
-        private void korisnikBindingNavigator_RefreshItems(object sender, EventArgs e)
+        //set loadDB
+        private void LoadData()
         {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT ID_Riba, Težina FROM Ulov";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            ds.Reset();
+            DB.Fill(ds, "Info");
+            grdUnos.DataSource = ds.Tables[0];
+            sql_con.Close();
+        }
 
+        //Add
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string txtQuery = "insert into Ulov (ID_Riba, Težina)values('"+cmbUnosRiba.Text+"','"+txtUnosTezina.Text+"')";
+            ExecuteQuery(txtQuery);
+            LoadData();
         }
 
         private void btnUnesi_Click(object sender, EventArgs e)
         {
-            
-
-
             Pocetna2 p2 = new Pocetna2();
             this.Hide();
             p2.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string txtQuery = "delete from Ulov where ID_Riba ='" + cmbUnosRiba.Text + "' AND Težina = '" + txtUnosTezina.Text + "'";
+            ExecuteQuery(txtQuery);
+            LoadData();
+        }
+
+        private void grdUnos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.grdUnos.Rows[e.RowIndex];
+                cmbUnosRiba.Text = row.Cells["ID_Riba"].Value.ToString();
+                txtUnosTezina.Text = row.Cells["Težina"].Value.ToString();
+                //cmbUnosRiba.Text = grdUnos.SelectedRows[0].Cells[0].Value.ToString();
+                //txtUnosTezina.Text = grdUnos.SelectedRows[0].Cells[1].Value.ToString();
+            }
         }
     }
 }

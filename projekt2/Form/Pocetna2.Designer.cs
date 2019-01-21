@@ -32,6 +32,7 @@
             this.btnPrikaz = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblWelcome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,12 +88,24 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
+            this.lblWelcome.Location = new System.Drawing.Point(12, 469);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(110, 26);
+            this.lblWelcome.TabIndex = 13;
+            this.lblWelcome.Text = "Welcome---";
+            // 
             // Pocetna2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(360, 504);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnPrikaz);
@@ -100,11 +113,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Pocetna2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Pocetna2_FormClosed);
             this.Load += new System.EventHandler(this.Pocetna2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -114,5 +129,6 @@
         private System.Windows.Forms.Button btnPrikaz;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }
