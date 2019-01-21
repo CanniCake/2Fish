@@ -76,9 +76,7 @@ namespace projekt2
 
         private void btnUnesi_Click(object sender, EventArgs e)
         {
-            Pocetna2 p2 = new Pocetna2();
-            this.Hide();
-            p2.ShowDialog();
+            this.Close();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

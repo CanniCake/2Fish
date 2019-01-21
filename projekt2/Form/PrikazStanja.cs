@@ -43,9 +43,7 @@ namespace projekt2
 
         private void btnNatrag_Click(object sender, EventArgs e)
         {
-            Pocetna2 p2 = new Pocetna2();
-            this.Hide();
-            p2.Show();
+            this.Close();
         }
 
     }

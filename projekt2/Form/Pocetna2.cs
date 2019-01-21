@@ -49,14 +49,12 @@ namespace projekt2
         private void btnPrikaz_Click(object sender, EventArgs e)
         {
             PrikazStanja Prikaz = new PrikazStanja();
-            this.Hide();
             Prikaz.ShowDialog();
         }
 
         private void btnUnos_Click(object sender, EventArgs e)
         {
             Form4 Unos_Ulova = new Form4();
-            this.Hide();
             Unos_Ulova.ShowDialog();
         }
 
