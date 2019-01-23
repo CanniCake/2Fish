@@ -17,7 +17,7 @@ namespace projekt2
             InitializeComponent();
         }
 
-        string username;
+        public string username;
 
         private void Pocetna2_Load(object sender, EventArgs e)
         {
@@ -26,7 +26,6 @@ namespace projekt2
             username = p1.CurrentUser;
 
             lblWelcome.Text = "Welcome, " + username + "!";
-
 
 
         }
@@ -56,6 +55,7 @@ namespace projekt2
         {
             Form4 Unos_Ulova = new Form4();
             Unos_Ulova.ShowDialog();
+            Unos_Ulova.username = username;
         }
 
     }

@@ -19,12 +19,16 @@ namespace projekt2
             InitializeComponent();
         }
 
-         SQLiteConnection sql_con;
-         SQLiteCommand sql_cmd;
-         SQLiteDataAdapter DB;
-         DataSet ds = new DataSet();
-         DataTable dt = new DataTable();
-         string connectionString = "URI=file:Baza.db";
+        public string username;
+
+
+        SQLiteConnection sql_con;
+        SQLiteCommand sql_cmd;
+        SQLiteDataAdapter DB;
+        DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
+        string connectionString = "URI=file:Baza.db";
+
 
 
         private void Form4_Load(object sender, EventArgs e)
@@ -34,6 +38,7 @@ namespace projekt2
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "MMMM yyyy";
         }
+
 
         //Set Connection
         private void SetConnection()
@@ -69,16 +74,15 @@ namespace projekt2
         //Add
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string txtQuery = "insert into Ulov (ID_Riba, Težina)values('"+cmbUnosRiba.Text+"','"+txtUnosTezina.Text+"')";
-            ExecuteQuery(txtQuery);
-            LoadData();
+                string txtQuery = "insert into Ulov (ID_Riba, Težina)values('" + cmbUnosRiba.Text + "','" + txtUnosTezina.Text + "')";
+                ExecuteQuery(txtQuery);
+
+                //string txtIzvj = "insert into Izvještaj (ID_Ulov, ID_Korisnik, Datum) values('" + last_insert_rowid() + "','" + username + "','" + DateTime.Now + "')";
+                //ExecuteQuery(txtIzvj);
+                LoadData();            
         }
 
-        private void btnUnesi_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        //Delete
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string txtQuery = "delete from Ulov where ID_Riba ='" + cmbUnosRiba.Text + "' AND Težina = '" + txtUnosTezina.Text + "'";
@@ -86,6 +90,7 @@ namespace projekt2
             LoadData();
         }
 
+        //Grid Select on Click
         private void grdUnos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -96,6 +101,11 @@ namespace projekt2
                 //cmbUnosRiba.Text = grdUnos.SelectedRows[0].Cells[0].Value.ToString();
                 //txtUnosTezina.Text = grdUnos.SelectedRows[0].Cells[1].Value.ToString();
             }
+        }
+
+        private void btnUnesi_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
