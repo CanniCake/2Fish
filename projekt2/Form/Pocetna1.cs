@@ -86,7 +86,7 @@ namespace projekt2
             SetConnection();
             sql_con.Open();
             sql_cmd = new SQLiteCommand();
-            string query = @"SELECT ID_KORISNIK, Password FROM Korisnik WHERE ID_KORISNIK='" + username + "'";
+            string query = @"SELECT ID_KORISNIK, Password FROM Korisnik WHERE ID_KORISNIK='" + username + "' AND Password = '" + password + "'";
 
             int count = 0;
             sql_cmd.CommandText = query;
