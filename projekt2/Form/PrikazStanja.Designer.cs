@@ -81,6 +81,8 @@
             this.dateDatum.Name = "dateDatum";
             this.dateDatum.Size = new System.Drawing.Size(187, 33);
             this.dateDatum.TabIndex = 5;
+            this.dateDatum.Value = new System.DateTime(2019, 1, 27, 12, 6, 29, 0);
+            this.dateDatum.ValueChanged += new System.EventHandler(this.dateDatum_ValueChanged);
             // 
             // btnNatrag
             // 
@@ -159,10 +161,10 @@
             this.grdPrikaz.AllowUserToResizeColumns = false;
             this.grdPrikaz.AllowUserToResizeRows = false;
             this.grdPrikaz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdPrikaz.Location = new System.Drawing.Point(39, 154);
+            this.grdPrikaz.Location = new System.Drawing.Point(12, 154);
             this.grdPrikaz.Name = "grdPrikaz";
             this.grdPrikaz.ReadOnly = true;
-            this.grdPrikaz.Size = new System.Drawing.Size(276, 170);
+            this.grdPrikaz.Size = new System.Drawing.Size(336, 170);
             this.grdPrikaz.TabIndex = 11;
             // 
             // PrikazStanja

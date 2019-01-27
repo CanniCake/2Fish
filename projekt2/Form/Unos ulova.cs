@@ -19,7 +19,7 @@ namespace projekt2
             InitializeComponent();
         }
 
-        public string username;
+        public string username = Pocetna2.username;
 
 
         SQLiteConnection sql_con;
@@ -33,8 +33,8 @@ namespace projekt2
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            this.dateTimePicker1.Enabled = false;
             LoadData();
-
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "MMMM yyyy";
         }
@@ -60,10 +60,11 @@ namespace projekt2
         //set loadDB
         private void LoadData()
         {
+            string rdt = dateTimePicker1.Value.ToString("MMMM yyyy");
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string CommandText = "SELECT ID_Riba, Težina FROM Ulov";
+            string CommandText = "SELECT Ulov.ID_Riba, Vrsta, Težina FROM Ulov INNER JOIN Riba on Ulov.ID_Riba = Riba.ID_RIBA INNER JOIN Izvjestaj on Ulov.ID_ULOV = Izvjestaj.ID_Ulov WHERE Izvjestaj.ID_Korisnik = '" + username +"' AND Izvjestaj.Datum = '" + rdt + "'";
             DB = new SQLiteDataAdapter(CommandText, sql_con);
             ds.Reset();
             DB.Fill(ds, "Info");
@@ -74,12 +75,18 @@ namespace projekt2
         //Add
         private void btnAdd_Click(object sender, EventArgs e)
         {
-                string txtQuery = "insert into Ulov (ID_Riba, Težina)values('" + cmbUnosRiba.Text + "','" + txtUnosTezina.Text + "')";
-                ExecuteQuery(txtQuery);
-
-                //string txtIzvj = "insert into Izvještaj (ID_Ulov, ID_Korisnik, Datum) values('" + last_insert_rowid() + "','" + username + "','" + DateTime.Now + "')";
-                //ExecuteQuery(txtIzvj);
-                LoadData();            
+            DateTime fdt = DateTime.Now;
+            string rdt = fdt.ToString("MMMM yyyy");
+            string txtQuery = "insert into Ulov (ID_Riba, Težina)values('" + cmbUnosRiba.Text + "','" + txtUnosTezina.Text + "')";
+            ExecuteQuery(txtQuery);
+            sql_con.Open();
+            SQLiteCommand idcmd = sql_con.CreateCommand();
+            idcmd.CommandText = "SELECT ID_ULOV FROM Ulov ORDER BY ID_ULOV DESC";
+            long lastid = (long)idcmd.ExecuteScalar();
+            sql_con.Close();
+            string txtIzvj = "insert into Izvjestaj (ID_Ulov, ID_Korisnik, Datum) values('" + lastid + "','" + username + "','" + rdt + "')";
+            ExecuteQuery(txtIzvj);
+            LoadData();            
         }
 
         //Delete

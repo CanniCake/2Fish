@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblUnos = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lblDatum = new System.Windows.Forms.Label();
             this.btnUnesi = new System.Windows.Forms.Button();
             this.korisnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.korisnikTableAdapter = new projekt2._2FishDataSetTableAdapters.KorisnikTableAdapter();
@@ -47,6 +45,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.cmbUnosRiba = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblDatum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.korisnikBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ulovBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -66,31 +66,6 @@
             this.lblUnos.Size = new System.Drawing.Size(267, 64);
             this.lblUnos.TabIndex = 0;
             this.lblUnos.Text = "Unos ulova";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "MMMM yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(141, 90);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(187, 33);
-            this.dateTimePicker1.TabIndex = 2;
-            this.dateTimePicker1.Value = new System.DateTime(2019, 1, 21, 4, 36, 53, 0);
-            // 
-            // lblDatum
-            // 
-            this.lblDatum.AutoSize = true;
-            this.lblDatum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
-            this.lblDatum.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDatum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
-            this.lblDatum.Location = new System.Drawing.Point(61, 95);
-            this.lblDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDatum.Name = "lblDatum";
-            this.lblDatum.Size = new System.Drawing.Size(76, 26);
-            this.lblDatum.TabIndex = 3;
-            this.lblDatum.Text = "Datum:";
             // 
             // btnUnesi
             // 
@@ -125,13 +100,15 @@
             // 
             // grdUnos
             // 
+            this.grdUnos.AllowUserToAddRows = false;
+            this.grdUnos.AllowUserToDeleteRows = false;
             this.grdUnos.AllowUserToResizeColumns = false;
             this.grdUnos.AllowUserToResizeRows = false;
             this.grdUnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdUnos.Location = new System.Drawing.Point(51, 214);
+            this.grdUnos.Location = new System.Drawing.Point(12, 214);
             this.grdUnos.Name = "grdUnos";
             this.grdUnos.ReadOnly = true;
-            this.grdUnos.Size = new System.Drawing.Size(256, 192);
+            this.grdUnos.Size = new System.Drawing.Size(336, 192);
             this.grdUnos.TabIndex = 5;
             this.grdUnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUnos_CellClick);
             // 
@@ -278,6 +255,31 @@
             this.cmbUnosRiba.Size = new System.Drawing.Size(87, 34);
             this.cmbUnosRiba.TabIndex = 12;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "MMMM yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(141, 90);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(187, 33);
+            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.Value = new System.DateTime(2019, 1, 27, 0, 0, 0, 0);
+            // 
+            // lblDatum
+            // 
+            this.lblDatum.AutoSize = true;
+            this.lblDatum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(180)))), ((int)(((byte)(255)))));
+            this.lblDatum.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDatum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(233)))), ((int)(((byte)(255)))));
+            this.lblDatum.Location = new System.Drawing.Point(61, 95);
+            this.lblDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDatum.Name = "lblDatum";
+            this.lblDatum.Size = new System.Drawing.Size(76, 26);
+            this.lblDatum.TabIndex = 3;
+            this.lblDatum.Text = "Datum:";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,8 +316,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblUnos;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lblDatum;
         private System.Windows.Forms.Button btnUnesi;
         private System.Windows.Forms.BindingSource korisnikBindingSource;
         private _2FishDataSetTableAdapters.KorisnikTableAdapter korisnikTableAdapter;
@@ -331,5 +331,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ComboBox cmbUnosRiba;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lblDatum;
     }
 }

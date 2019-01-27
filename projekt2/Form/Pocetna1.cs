@@ -20,7 +20,6 @@ namespace projekt2
 
         SQLiteConnection sql_con;
         SQLiteCommand sql_cmd;
-        SQLiteDataAdapter DB;
         SQLiteDataReader DR;
         public string CurrentUser;
         string connectionString = "URI=file:Baza.db";

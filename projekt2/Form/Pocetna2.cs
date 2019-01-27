@@ -17,7 +17,7 @@ namespace projekt2
             InitializeComponent();
         }
 
-        public string username;
+        public static string username;
 
         private void Pocetna2_Load(object sender, EventArgs e)
         {
